@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="formCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Index</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/custom-animations.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/mdb.css" rel="stylesheet">
+
+
+</head>
+<body>
+<! -- ********** HEADER ********** -->
+<div class="col-xs-12" style="padding-left: 20px; border-bottom: 2px solid black">
+    <h1>PHÂN LOẠI VĂN BẢN TIẾNG VIỆT</h1>
+    <h4>Vietnamese Text Classification</h4>
+</div>
+<div id="h">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <form novalidate>
+                        <label for="inputTextToSave" style="font-size: large;">Nhập văn bản muốn phân loại:</label>
+                        <textarea type="text" id="inputTextToSave" class="form-control" rows="13"
+                                  style="resize: none; overflow-y: scroll; font-size: large; font-style: inherit"></textarea>
+                    </form>
+                </div>
+                <div class="col-lg-12" style="margin-top: 0px">
+                    <div class="form-group" style="margin-top: 10px">
+                        <label for="fileToLoad" style="font-size: large; text-align: left " class="btn btn-default">Chọn
+                            file...</label> <label style="font-size: large; color: white">Tên file</label>
+                        <input type="file" id="fileToLoad" style="visibility: hidden; display: none" onchange="loadFileAsText()"></input>
+                        <label for="btnSubmit" style="font-size: large; text-align: left; float: right"
+                               class="btn btn-default btn-amber">Phân Loại</label>
+                        <button id="btnSubmit" style="visibility: hidden; display: none" ng-click="submitText()"></button>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div id="coefChart" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ul class="nav nav-pills" style="padding: 20px 20px 20px 20px">
+                    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+                    <li><a data-toggle="pill" href="#menu1">Menu 1</a></li>
+                    <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
+                    <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                        <h3 style="display: none">HOME</h3>
+                        <div class="col-md-12 centered" style="border-bottom: 1px solid black">
+                            <h3 style="color: black">Văn bản thuộc loại</h3>
+                            <h1 id="txtSVMType" class="animated zoomIn" style="color: white; font-size: 100px">abc</h1>
+                        </div>
+                        <div class="col-md-12 centered" style="padding-top: 20px">
+                            <div id="topicChart" style="height: 370px; width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                        <h3>Menu 1</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</p>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                        <h3>Menu 2</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                        <h3>Menu 3</h3>
+                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                            explicabo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <! --/container -->
+</div>
+<! --/h -->
+
+<! -- ********** FIRST ********** -->
+<div id="w">
+    <div class="row nopadding">
+        <div class="col-md-5 col-md-offset-1 mt">
+            <h4>Handsome Analytics</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially unchanged.</p>
+            <p class="mt">
+                <button class="btn btn-info btn-theme">Sign Up Now | 14 Days Free</button>
+            </p>
+        </div>
+
+        <div class="col-md-6 pull-right">
+            <img src="assets/img/shot01.png" class="img-responsive alignright" alt="" data-effect="slide-right">
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/container -->
+
+
+<! -- ********** BLUE SECTION - PICTON ********** -->
+<div id="picton">
+    <div class="row nopadding">
+        <div class="col-md-6 pull-left">
+            <img src="assets/img/shot02.png" class="img-responsive alignleft" alt="" data-effect="slide-left">
+        </div>
+        <div class="col-md-5 mt">
+            <h4>Multiple Templates Options</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially unchanged.</p>
+            <p class="mt">
+                <button class="btn btn-white btn-theme">Sign Up Now | 14 Days Free</button>
+            </p>
+        </div>
+
+    </div>
+    <! --row -->
+</div>
+<! --/Picton -->
+
+
+<! -- ********** BLUE SECTION - CURIOUS ********** -->
+<div id="curious">
+    <div class="row nopadding">
+        <div class="col-md-5 col-md-offset-1 mt">
+            <h4>Important Tools Provided</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially unchanged.</p>
+            <p class="mt">
+                <button class="btn btn-white btn-theme">Sign Up Now | 14 Days Free</button>
+            </p>
+        </div>
+
+        <div class="col-md-6 pull-right">
+            <img src="assets/img/shot03.png" class="img-responsive alignright" alt="" data-effect="slide-right">
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/curious -->
+
+<! -- ********** BLUE SECTION - MALIBU ********** -->
+<div id="malibu">
+    <div class="row nopadding">
+        <div class="col-md-6 pull-left">
+            <img src="assets/img/shot04.png" class="img-responsive alignleft" alt="" data-effect="slide-left">
+        </div>
+        <div class="col-md-5 mt">
+            <h4>Try Us For Free</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially unchanged.</p>
+            <p class="mt">
+                <button class="btn btn-white btn-theme">Sign Up Now | 14 Days Free</button>
+            </p>
+        </div>
+
+    </div>
+    <! --row -->
+</div>
+<! --/Malibu -->
+
+
+<! -- ********** BLUE SECTION - JELLY ********** -->
+<div id="jelly">
+    <div class="row nopadding">
+        <div class="col-md-5 col-md-offset-1 mt">
+            <h4>Don't Wait, Try Us Now</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially unchanged.</p>
+            <p class="mt">
+                <button class="btn btn-white btn-theme">Sign Up Now | 14 Days Free</button>
+            </p>
+        </div>
+
+        <div class="col-md-6 mt centered">
+            <h1 data-effect="slide-bottom">24</h1>
+            <h3>$ per month</h3>
+        </div>
+    </div>
+    <! --/row -->
+</div>
+<! --/Jelly -->
+
+<! -- ********** FOOTER ********** -->
+<div id="f">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 centered">
+                <h4 class="mb">Grab Our Offer Now. Try Us For 14 Days Totally Free.</h4>
+                <form role="form" action="register.php" method="post" enctype="plain">
+                    <input type="email" name="email" class="subscribe-input" placeholder="Enter your e-mail address..."
+                           required>
+                    <button class='btn btn-lg btn-info btn-sub subscribe-submit' type="submit">Yes, Please</button>
+                </form>
+
+            </div>
+
+        </div>
+        <! --/row -->
+    </div>
+    <! --/container -->
+</div>
+<! --/F -->
+
+<! -- ********** CREDITS ********** -->
+<div id="c">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 centered">
+                <p>Copyright 2014 | LandingSumo.com</p>
+            </div>
+        </div>
+    </div>
+    <! --/container -->
+</div>
+<! --/C -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/retina-1.1.0.js"></script>
+<script src="assets/js/jquery.unveilEffects.js"></script>
+<script src="assets/js/mdb.js"></script>
+<script src="assets/js/canvasjs.min.js"></script>
+<script src="assets/js/angular.min.js"></script>
+<script>
+    var topicChart;
+    window.onload = function () {
+
+        topicChart = new CanvasJS.Chart("topicChart", {
+            animationEnabled: true,
+            title: {
+                text: "Biểu đồ phân loại nhóm",
+                fontFamily: 'Roboto'
+            },
+            data: [{
+                type: "pie",
+                startAngle: 240,
+                yValueFormatString: "##0.00\"%\"",
+                indexLabel: "{label} {y}",
+                dataPoints: [
+                    {y: null, label: "Chính Trị"},
+                    {y: null, label: "Đời Sống"},
+                    {y: null, label: "Khoa Học"},
+                    {y: null, label: "Kinh Doanh"},
+                    {y: null, label: "Pháp Luật"},
+                    {y: null, label: "Sức Khỏe"},
+                    {y: null, label: "Thế Giới"},
+                    {y: null, label: "Thể Thao"},
+                    {y: null, label: "Văn Hóa"},
+                    {y: null, label: "Vi Tính"}
+                ]
+            }]
+        });
+        topicChart.render();
+
+        var coefChart = new CanvasJS.Chart("coefChart", {
+            animationEnabled: true,
+
+            title: {
+                text: "Fortune 500 Companies by Country"
+            },
+            axisX: {
+                interval: 1
+            },
+            axisY2: {
+                interlacedColor: "rgba(1,77,101,.2)",
+                gridColor: "rgba(1,77,101,.1)",
+                title: "Number of Companies"
+            },
+            data: [{
+                type: "bar",
+                name: "companies",
+                axisYType: "secondary",
+                color: "#014D65",
+                dataPoints: [
+                    {y: 3, label: "Sweden"},
+                    {y: 7, label: "Taiwan"},
+                    {y: 5, label: "Russia"},
+                    {y: 9, label: "Spain"},
+                    {y: 7, label: "Brazil"},
+                    {y: 7, label: "India"},
+                    {y: 9, label: "Italy"},
+                    {y: 8, label: "Australia"},
+                    {y: 11, label: "Canada"},
+                    {y: 15, label: "South Korea"},
+                    {y: 12, label: "Netherlands"},
+                    {y: 15, label: "Switzerland"},
+                    {y: 25, label: "Britain"},
+                    {y: 28, label: "Germany"},
+                    {y: 29, label: "France"},
+                    {y: 52, label: "Japan"},
+                    {y: 103, label: "China"},
+                    {y: 134, label: "US"}
+                ]
+            }]
+        });
+        coefChart.render();
+    }
+
+    function loadFileAsText(){
+        var fileToLoad = document.getElementById("fileToLoad").files[0];
+
+        var fileReader = new FileReader();
+        fileReader.onload = function(fileLoadedEvent){
+            var textFromFileLoaded = fileLoadedEvent.target.result;
+            document.getElementById("inputTextToSave").value = textFromFileLoaded;
+        };
+
+        fileReader.readAsText(fileToLoad, "UTF-8");
+    }
+
+
+    var app = angular.module('myApp', []);
+    app.controller('formCtrl', function ($scope, $http) {
+        $scope.submitText = function () {
+            $http({
+                method: 'GET',
+                url: 'http://127.0.0.1:5000/predict?value=' + document.getElementById("inputTextToSave").value
+            }).then(function successCallback(response) {
+                document.getElementById('txtSVMType').classList.remove("animated");
+                document.getElementById('txtSVMType').classList.remove("zoomIn");
+                void document.getElementById('txtSVMType').offsetWidth;
+                document.getElementById('txtSVMType').classList.add("animated");
+                document.getElementById('txtSVMType').classList.add("zoomIn");
+                document.getElementById('txtSVMType').innerHTML = response.data.result;
+                document.getElementById('txtSVMType').style.color = "black";
+                var proba = response.data.proba;
+                for (i = 0; i < 10; i++) {
+                    topicChart.options.data[0].dataPoints[i].y = proba[i] * 100;
+                }
+                topicChart.render();
+            }, function errorCallback(response) {
+                alert('server is not response !')
+            });
+        };
+    });
+</script>
+</body>
+</html>
