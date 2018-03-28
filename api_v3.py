@@ -31,8 +31,29 @@ def get_prediction():
     rs = svm_model.predict(s_vec)
     rs_proba = svm_model.predict_proba(s_vec)
     rs_proba_list = rs_proba.tolist()
+    topic = ''
+    if rs[0] == 'ChinhTri':
+        topic = 'Chính Trị'
+    if rs[0] == 'DoiSong':
+        topic = 'Đời Sống'
+    if rs[0] == 'KhoaHoc':
+        topic = 'Khoa Học'
+    if rs[0] == 'KinhDoanh':
+        topic = 'Kinh Doanh'
+    if rs[0] == 'PhapLuat':
+        topic = 'Pháp Luật'
+    if rs[0] == 'SucKhoe':
+        topic = 'Sức Khỏe'
+    if rs[0] == 'TheGioi':
+        topic = 'Thế Giới'
+    if rs[0] == 'TheThao':
+        topic = 'Thể Thao'
+    if rs[0] == 'VanHoa':
+        topic = 'Văn Hóa'
+    if rs[0] == 'ViTinh':
+        topic = 'Vi Tính'
     return jsonify(
-                result = rs[0],
+                result = topic,
                 proba = rs_proba_list[0]
             )
 
