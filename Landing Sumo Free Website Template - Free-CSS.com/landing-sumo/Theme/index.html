@@ -52,32 +52,37 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <ul class="nav nav-pills" style="padding: 20px 20px 20px 20px">
-                    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
-                    <li><a data-toggle="pill" href="#menu1">Menu 1</a></li>
+                <ul class="nav nav-pills" style="padding: 20px 20px 20px 20px" id="myTab">
+                    <li class="active"><a data-toggle="pill" href="#svmTab">Support Vector Machine</a></li>
+                    <li><a data-toggle="pill" href="#naiveTab">Naive Bayes</a></li>
                     <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
                     <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
                 </ul>
 
                 <div class="tab-content">
-                    <div id="home" class="tab-pane fade in active">
-                        <h3 style="display: none">HOME</h3>
+                    <div id="svmTab" class="tab-pane fade in active">
+                        <h3 style="display: none">Support Vector Machine</h3>
                         <div class="col-md-12 centered" style="border-bottom: 1px solid black">
                             <h3 style="color: black">Văn bản thuộc loại</h3>
                             <h1 id="txtSVMType" class="animated zoomIn" style="color: white; font-size: 100px">abc</h1>
                         </div>
                         <div class="col-md-12 centered" style="padding-top: 20px">
-                            <div id="topicChart" style="height: 370px; width: 100%;"></div>
+                            <div id="svmChart"></div>
                         </div>
                     </div>
-                    <div id="menu1" class="tab-pane fade">
-                        <h3>Menu 1</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.</p>
+                    <div id="naiveTab" class="tab-pane fade">
+                        <h3 style="display: none">Naive Bayes</h3>
+                        <div class="col-md-12 centered" style="border-bottom: 1px solid black">
+                            <h3 style="color: black">Văn bản thuộc loại</h3>
+                            <h1 id="txtNaiveType" class="animated zoomIn" style="color: white; font-size: 100px">abc</h1>
+                        </div>
+                        <div class="col-md-12" style="padding-top: 20px">
+                            <div id="naiveChart"></div>
+                        </div>
                     </div>
                     <div id="menu2" class="tab-pane fade">
                         <h3>Menu 2</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        <p style="text-align: center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                             laudantium, totam rem aperiam.</p>
                     </div>
                     <div id="menu3" class="tab-pane fade">
@@ -260,7 +265,7 @@
     var topicChart;
     window.onload = function () {
 
-        topicChart = new CanvasJS.Chart("topicChart", {
+        svmChart = new CanvasJS.Chart("svmChart", {
             animationEnabled: true,
             title: {
                 text: "Biểu đồ phân loại nhóm",
@@ -285,7 +290,34 @@
                 ]
             }]
         });
-        topicChart.render();
+        svmChart.render();
+
+        naiveChart = new CanvasJS.Chart("naiveChart", {
+            animationEnabled: true,
+            title: {
+                text: "Biểu đồ phân loại nhóm",
+                fontFamily: 'Roboto'
+            },
+            data: [{
+                type: "pie",
+                startAngle: 240,
+                yValueFormatString: "##0.00\"%\"",
+                indexLabel: "{label} {y}",
+                dataPoints: [
+                    {y: null, label: "Chính Trị"},
+                    {y: null, label: "Đời Sống"},
+                    {y: null, label: "Khoa Học"},
+                    {y: null, label: "Kinh Doanh"},
+                    {y: null, label: "Pháp Luật"},
+                    {y: null, label: "Sức Khỏe"},
+                    {y: null, label: "Thế Giới"},
+                    {y: null, label: "Thể Thao"},
+                    {y: null, label: "Văn Hóa"},
+                    {y: null, label: "Vi Tính"}
+                ]
+            }]
+        });
+        naiveChart.render();
 
         var coefChart = new CanvasJS.Chart("coefChart", {
             animationEnabled: true,
@@ -360,14 +392,43 @@
                 document.getElementById('txtSVMType').style.color = "black";
                 var proba = response.data.proba;
                 for (i = 0; i < 10; i++) {
-                    topicChart.options.data[0].dataPoints[i].y = proba[i] * 100;
+                    svmChart.options.data[0].dataPoints[i].y = proba[i] * 100;
                 }
-                topicChart.render();
+                svmChart.render();
             }, function errorCallback(response) {
                 alert('server is not response !')
             });
+
+            $http({
+                method: 'GET',
+                url: 'http://127.0.0.1:5000/predict_naive?value=' + document.getElementById("inputTextToSave").value
+            }).then(function successCallback(response) {
+                document.getElementById('txtNaiveType').classList.remove("animated");
+                document.getElementById('txtNaiveType').classList.remove("zoomIn");
+                void document.getElementById('txtNaiveType').offsetWidth;
+                document.getElementById('txtNaiveType').classList.add("animated");
+                document.getElementById('txtNaiveType').classList.add("zoomIn");
+                document.getElementById('txtNaiveType').innerHTML = response.data.result;
+                document.getElementById('txtNaiveType').style.color = "black";
+                var proba = response.data.proba;
+                for (i = 0; i < 10; i++) {
+                    naiveChart.options.data[0].dataPoints[i].y = proba[i] * 100;
+                }
+                naiveChart.render();
+            }, function errorCallback(response) {
+                alert('server is not response !');
+            });
         };
     });
+
+    /*pie shows center when switching tabs*/
+    $('a[data-toggle="pill"]').on('shown.bs.tab', function () {
+        naiveChart.render();
+        svmChart.render();
+        $('#naiveTab').off();
+        $('#svmTab').off();
+    })
+
 </script>
 </body>
 </html>
