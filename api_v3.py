@@ -12,12 +12,20 @@ from flask import request
 from flask import jsonify
 from flask_cors import CORS, cross_origin
 
+#function for tokenize document using pyvi
 def tokenize_document(document):
     return ViTokenizer.tokenize(document)
 
+#load vectorizer model
 vectorizer_model = pickle.load(open('vectorizer_model_v3.sav', 'rb'))
+
+#load svm model
 svm_model = pickle.load(open('svm_model_v3.sav', 'rb'))
+
+#load svm original model
 svm_ori_model = pickle.load(open('svm_ori_model_v3.sav', 'rb'))
+
+#get all classses
 classes = svm_model.classes_
 
 app = Flask(__name__)
