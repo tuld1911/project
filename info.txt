@@ -1,0 +1,29 @@
+﻿- score (vectorized): 0.920393861791
+
+- score (vectorized) trên mỗi loại:
+ + Chính trị: 0.897185146029
+ + Đời sống: 0.639980353635
+ + Khoa học: 0.799618320611
+ + Kinh doanh: 0.894238059136
+ + Pháp luật: 0.920802534319
+ + Sức khỏe: 0.956802658298
+ + Thế giới: 0.931506849315
+ + Thể thao: 0.985300734963
+ + Văn hóa: 0.95584
+ + Vi tính: 0.966447368421
+
+- độ dài tối đa (train, jvn): 13551 từ file ChinhTri_t\XH_TT_ (3135).txt
+- độ dài tối thiểu (train, jvn): 35 từ file PhapLuat_t\PL_TT_ (2690).txt
+- độ dài trung bình (train, jvn): 13172763/33759 = 390.2 từ/văn bản
+
+- độ dài tối đa (train, no jvn): 16989 từ file data/ChinhTri\XH_TT_ (3135).txt
+- độ dài tối thiểu (train, no jvn): 45 từ file data/ViTinh\VT_VNE_ (1036).txt
+- độ dài trung bình (train, no jvn): 16033644/33759 = 475 từ/văn bản
+
+- độ dài tối đa (test, jvn): 9751 từ file DoiSong_test\DS_VNE_T_ (1866).txt
+- độ dài tối thiểu (test, jvn): 7 từ file DoiSong_test\DS_VNE_T_ (2247).txt
+- độ dài trung bình (test, jvn): 20715870/50373 = 411.25 từ/văn bản
+
+- độ dài tối đa (test, no jvn): 11506 từ file KinhDoanh\KD_VNE_T_ (1797).txt
+- độ dài tối thiểu (test, no jvn): 6 từ file DoiSong\DS_VNE_T_ (2247).txt
+- độ dài trung bình (test, no jvn): 25127360/50373 = 499 từ/văn bản
