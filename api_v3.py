@@ -26,11 +26,21 @@ cors = CORS(app, resources={r"/predict": {"origins": "*"}}, methods=['GET'])
 @app.route('/predict', methods=['GET'])
 def get_prediction():
     text = request.args.get('value')
+    
+    #tokenize using pyvi
     s_token = tokenize_document(text)
+    
+    #vectorize using vectorizer model
     s_vec = vectorizer_model.transform([s_token])
+    
+    #predict using svm model
     rs = svm_model.predict(s_vec)
+    
+    #return predict proba for each topics
     rs_proba = svm_model.predict_proba(s_vec)
     rs_proba_list = rs_proba.tolist()
+    
+    #convert from topic name to vietnamese topic name
     topic = ''
     if rs[0] == 'ChinhTri':
         topic = 'Chính Trị'
