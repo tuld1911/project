@@ -799,6 +799,22 @@
             }, function errorCallback(response) {
                 alert('server is not response !');
             });
+
+            $http({
+                method: 'POST',
+                url: 'https://cors-anywhere.herokuapp.com/' + 'http://magizbox.com:9386/classification',
+                header: {
+                    "Content-Type": "application/json"
+                },
+                data: {
+                    'text': document.getElementById("inputTextToSave").value,
+                    'domain': "general"
+                }
+            }).then(function successCallback(response) {
+                alert(response.data.output)
+            }, function errorCallback(response) {
+                alert('server is not response !');
+            });
         };
     });
 

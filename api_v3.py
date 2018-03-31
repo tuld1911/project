@@ -5,7 +5,7 @@ Created on Tue Mar 27 16:58:25 2018
 @author: Admin
 """
 
-from pyvi.pyvi import ViTokenizer
+from pyvi import ViTokenizer
 import pickle
 from flask import Flask
 from flask import request
