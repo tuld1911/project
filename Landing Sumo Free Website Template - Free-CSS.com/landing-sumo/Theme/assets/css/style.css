@@ -14,6 +14,16 @@
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Roboto:900,700,400);
 
+@font-face {
+    font-family: "title font";
+    src: url("../fonts/TUV Noh Carbone.ttf");
+}
+
+@font-face {
+    font-family: "introFont";
+    src: url("../fonts/TUV Coco Gothic - Light.ttf");
+}
+
 * { 
 	margin: 0;
 	padding: 0px;
@@ -341,4 +351,3 @@ input {
 	color: white;
 	font-size: 13px;
 }
-
