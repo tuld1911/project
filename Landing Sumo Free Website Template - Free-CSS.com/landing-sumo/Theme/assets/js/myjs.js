@@ -74,16 +74,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.6061, label: "Cướp"},
+                {y: -1.5988, label: "Toàn quốc"},
+                {y: -1.5988, label: "Quan chức"},
+                {y: -1.5736, label: "Nghiên cứu"},
+                {y: -1.5369, label: "Tấn công"},
+                {y: 1.8365, label: "Di tích"},
+                {y: 1.8416, label: "Công chính"},
+                {y: 1.9812, label: "Công chức"},
+                {y: 2.1420, label: "Qui hoạch"},
+                {y: 2.1910, label: "Dân"}
             ]
         }]
     });
@@ -109,16 +109,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.3178, label: "Âm nhạc"},
+                {y: -1.2616, label: "Phẫu thuật"},
+                {y: -1.2148, label: "Cơ thể"},
+                {y: -1.1951, label: "Sáng tác"},
+                {y: -1.1965, label: "Du khách"},
+                {y: 1.6969, label: "Nguyên liệu"},
+                {y: 1.8845, label: "Ẩm thực"},
+                {y: 2.3266, label: "Ngon"},
+                {y: 2.1529, label: "Món"},
+                {y: 2.1175, label: "Tâm sự"}
             ]
         }]
     });
@@ -144,16 +144,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.1056, label: "Microsoft"},
+                {y: -1.0726, label: "Bệnh nhân"},
+                {y: -0.9713, label: "Máy tính"},
+                {y: -0.9678, label: "Thị trường"},
+                {y: -0.9567, label: "Đường"},
+                {y: 1.7890, label: "Trái đất"},
+                {y: 1.8542, label: "Nhận định"},
+                {y: 1.9652, label: "Robot"},
+                {y: 2.0737, label: "Công nguyên"},
+                {y: 2.2449, label: "Ra đời"}
             ]
         }]
     });
@@ -179,16 +179,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.4766, label: "Điều tra"},
+                {y: -1.3671, label: "Ảo"},
+                {y: -1.3593, label: "Thành phố"},
+                {y: -1.3132, label: "Cảnh sát"},
+                {y: -1.2774, label: "Chiếm đoạt"},
+                {y: 1.6128, label: "Nhập khẩu"},
+                {y: 1.7288, label: "WTO"},
+                {y: 1.7385, label: "Thị trường"},
+                {y: 1.7486, label: "Nhà máy"},
+                {y: 1.8182, label: "Đầu tư"}
             ]
         }]
     });
@@ -214,16 +214,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.1795, label: "Trung tá"},
+                {y: -1.1721, label: "Định kỳ"},
+                {y: -1.1715, label: "Quy chế"},
+                {y: -1.1588, label: "Phê chuẩn"},
+                {y: -1.1603, label: "chống"},
+                {y: 1.7362, label: "Điều tra"},
+                {y: 1.7416, label: "Phát hiện"},
+                {y: 1.8999, label: "Tư pháp"},
+                {y: 2.7925, label: "Tòa án nhân dân"},
+                {y: 2.1135, label: "Bị cáo"}
             ]
         }]
     });
@@ -249,16 +249,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.1517, label: "Thú y"},
+                {y: -1.1269, label: "Nghề"},
+                {y: -1.1257, label: "Sở"},
+                {y: -1.1139, label: "Công nghệ"},
+                {y: -1.0505, label: "Nguyên liệu"},
+                {y: 1.5362, label: "Gan"},
+                {y: 1.5802, label: "Chợ Rẫy"},
+                {y: 1.6301, label: "HIV"},
+                {y: 1.6413, label: "Y tế"},
+                {y: 1.7093, label: "Thuốc"}
             ]
         }]
     });
@@ -284,16 +284,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.2509, label: "Vận hội"},
+                {y: -1.2471, label: "Thi đấu"},
+                {y: -1.1590, label: "Tổng thống"},
+                {y: -1.1783, label: "Tỷ lệ"},
+                {y: -1.1370, label: "Phiên"},
+                {y: 1.6738, label: "Iraq"},
+                {y: 1.7712, label: "Hồi giáo"},
+                {y: 1.9144, label: "Liên Hợp Quốc"},
+                {y: 2.2294, label: "Thiệt mạng"},
+                {y: 2.0547, label: "Tổng thống"}
             ]
         }]
     });
@@ -319,16 +319,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -0.7685, label: "Thuyền"},
+                {y: -0.7093, label: "Đánh đầu"},
+                {y: -0.7093, label: "Vô địch"},
+                {y: -0.7207, label: "Xe"},
+                {y: -0.7442, label: "Thí sinh"},
+                {y: 2.0835, label: "Liên đoàn bóng đá"},
+                {y: 2.2246, label: "Trận đấu"},
+                {y: 2.2749, label: "Vận động viên"},
+                {y: 2.3971, label: "Câu lạc bộ"},
+                {y: 2.5098, label: "World Cup"}
             ]
         }]
     });
@@ -354,16 +354,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.0460, label: "Đạo diễn"},
+                {y: -1.0460, label: "Cơ quan"},
+                {y: -1.0229, label: "Cầu thủ"},
+                {y: -1.0076, label: "Chính thức"},
+                {y: -0.9582, label: "Thông tin"},
+                {y: 2.1618, label: "Ca khúc"},
+                {y: 2.2186, label: "Tác phẩm"},
+                {y: 2.3117, label: "Hoa hậu"},
+                {y: 2.4870, label: "Nghệ sĩ"},
+                {y: 2.6299, label: "Khán giả"}
             ]
         }]
     });
@@ -389,16 +389,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: 3, label: "Sweden"},
-                {y: 7, label: "Taiwan"},
-                {y: 5, label: "Russia"},
-                {y: 9, label: "Spain"},
-                {y: 7, label: "Brazil"},
-                {y: 7, label: "India"},
-                {y: 9, label: "Italy"},
-                {y: 8, label: "Australia"},
-                {y: 11, label: "Canada"},
-                {y: 15, label: "South Korea"}
+                {y: -1.0509, label: "Công an"},
+                {y: -0.9385, label: "Chiếm thị phần"},
+                {y: -0.9312, label: "Hồ sơ"},
+                {y: -0.9406, label: "Du học"},
+                {y: -0.9674, label: "Chứa"},
+                {y: 2.2415, label: "Công nghệ thông tin"},
+                {y: 1.8921, label: "Trang web"},
+                {y: 2.0962, label: "Internet"},
+                {y: 2.1115, label: "File"},
+                {y: 2.1746, label: "Máy tính"}
             ]
         }]
     });
