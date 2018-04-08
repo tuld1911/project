@@ -24,6 +24,11 @@
     src: url("../fonts/TUV Coco Gothic - Light.ttf");
 }
 
+@font-face {
+	font-family: "agencyFont";
+	src: url("../fonts/AGENCYB.TTF");
+}
+
 * { 
 	margin: 0;
 	padding: 0px;

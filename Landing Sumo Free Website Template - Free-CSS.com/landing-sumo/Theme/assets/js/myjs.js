@@ -1,4 +1,57 @@
 window.onload = function () {
+    topicTrainChart = new CanvasJS.Chart("topicTrainChart", {
+        animationEnabled: true,
+        title: {
+            text: "Biểu đồ phần trăm chủ đề của dữ liệu training",
+            fontFamily: 'Roboto'
+        },
+        data: [{
+            type: "pie",
+            startAngle: 240,
+            yValueFormatString: "##0.00\"%\"",
+            indexLabel: "{label} {y}",
+            dataPoints: [
+                {y: 15.5, label: "Chính Trị"},
+                {y: 9.4, label: "Đời Sống"},
+                {y: 5.4, label: "Khoa Học"},
+                {y: 7.6, label: "Kinh Doanh"},
+                {y: 11.5, label: "Pháp Luật"},
+                {y: 10, label: "Sức Khỏe"},
+                {y: 8.6, label: "Thế Giới"},
+                {y: 15.7, label: "Thể Thao"},
+                {y: 9.1, label: "Văn Hóa"},
+                {y: 7.8, label: "Vi Tính"}
+            ]
+        }]
+    });
+    topicTrainChart.render();
+
+    topicTestChart = new CanvasJS.Chart("topicTestChart", {
+        animationEnabled: true,
+        title: {
+            text: "Biểu đồ phần trăm chủ đề của dữ liệu testing",
+            fontFamily: 'Roboto'
+        },
+        data: [{
+            type: "pie",
+            startAngle: 240,
+            yValueFormatString: "##0.00\"%\"",
+            indexLabel: "{label} {y}",
+            dataPoints: [
+                {y: 15, label: "Chính Trị"},
+                {y: 4.1, label: "Đời Sống"},
+                {y: 4.2, label: "Khoa Học"},
+                {y: 10.5, label: "Kinh Doanh"},
+                {y: 7.5, label: "Pháp Luật"},
+                {y: 10.8, label: "Sức Khỏe"},
+                {y: 13.4, label: "Thế Giới"},
+                {y: 13.3, label: "Thể Thao"},
+                {y: 12.4, label: "Văn Hóa"},
+                {y: 8.8, label: "Vi Tính"}
+            ]
+        }]
+    });
+    topicTestChart.render();
 
     svmChart = new CanvasJS.Chart("svmChart", {
         animationEnabled: true,
@@ -472,7 +525,13 @@ app.controller('formCtrl', function ($scope, $http) {
                 'domain': "general"
             }
         }).then(function successCallback(response) {
-            alert(response.data.output)
+            document.getElementById('txtUnder').classList.remove("animated");
+            document.getElementById('txtUnder').classList.remove("zoomIn");
+            void document.getElementById('txtUnder').offsetWidth;
+            document.getElementById('txtUnder').classList.add("animated");
+            document.getElementById('txtUnder').classList.add("zoomIn");
+            document.getElementById('txtUnder').innerHTML = response.data.output;
+            document.getElementById('txtUnder').style.color = "black";
         }, function errorCallback(response) {
             alert('server is not response !');
         });

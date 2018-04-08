@@ -132,8 +132,7 @@
                 <ul class="nav nav-pills" style="padding: 20px 20px 20px 20px" id="myTab">
                     <li class="active"><a data-toggle="pill" href="#svmTab">Support Vector Machine</a></li>
                     <li><a data-toggle="pill" href="#naiveTab">Naive Bayes</a></li>
-                    <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
-                    <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
+                    <li><a data-toggle="pill" href="#underthesea">Underthesea</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -141,7 +140,7 @@
                         <h3 style="display: none">Support Vector Machine</h3>
                         <div class="col-md-12 centered" style="border-bottom: 1px solid black">
                             <h3 style="color: black">Văn bản thuộc loại</h3>
-                            <h1 id="txtSVMType" class="animated zoomIn" style="color: white; font-size: 100px">abc</h1>
+                            <h1 id="txtSVMType" class="animated zoomIn" style="color: white; font-size: 100px">.</h1>
                         </div>
                         <div class="col-md-12 centered" style="padding-top: 20px">
                             <div id="svmChart"></div>
@@ -151,21 +150,25 @@
                         <h3 style="display: none">Naive Bayes</h3>
                         <div class="col-md-12 centered" style="border-bottom: 1px solid black">
                             <h3 style="color: black">Văn bản thuộc loại</h3>
-                            <h1 id="txtNaiveType" class="animated zoomIn" style="color: white; font-size: 100px">abc</h1>
+                            <h1 id="txtNaiveType" class="animated zoomIn" style="color: white; font-size: 100px">.</h1>
                         </div>
                         <div class="col-md-12" style="padding-top: 20px">
                             <div id="naiveChart"></div>
                         </div>
                     </div>
-                    <div id="menu2" class="tab-pane fade">
-                        <h3>Menu 2</h3>
-                        <p style="text-align: center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam.</p>
-                    </div>
-                    <div id="menu3" class="tab-pane fade">
-                        <h3>Menu 3</h3>
-                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                            explicabo.</p>
+                    <div id="underthesea" class="tab-pane fade">
+                        <h3 style="display: none">Underthesea</h3>
+                        <div class="col-md-12 centered" style="border-bottom: 1px solid black">
+                            <h3 style="color: black">Văn bản thuộc loại</h3>
+                            <h1 id="txtUnder" class="animated zoomIn" style="color: white; font-size: 100px">.</h1>
+                        </div>
+                        <div class="col-md-12" style="padding-top: 20px; font-size: 30px">
+                            <span><strong>UNDERTHESEA</strong> là tập hợp các dự án, nguồn dữ liệu mở, tài liệu hướng dẫn với mục đích hỗ trợ việc nghiên cứu và phát triển trong lĩnh vực xử lý ngôn ngữ tự nhiên tiếng Việt.</span>
+                            <br>
+                            <br><span>Chúng tôi sử dụng <strong>underthesea</strong> nhằm mục đích so sánh giữa mô hình <strong>Support Vector Machine</strong> và mô hình <strong>Fasttext</strong>.</span><br>
+                            <br><span><strong>Github:</strong> https://github.com/magizbox/underthesea</span><br>
+                            <br><span><strong>Facebook:</strong> https://www.facebook.com/undertheseanlp/</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -181,149 +184,81 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-6" style="border-bottom: 1px solid #73879C">
-                    <h1>Dữ liệu training</h1>
+                    <h1><strong>Dữ liệu training</strong></h1>
                 </div>
+            </div>
+            <div class="col-lg-12" style="height: 450px; padding-top: 50px">
+                <div id="topicTrainChart"></div>
             </div>
             <div class="col-md-12" style="padding-top: 20px; padding-bottom: 20px">
-                <div class="col-md-2" style="text-align: center">
-                    <h3>Tổng số bài báo</h3>
-                    <div style="font-size: 100px; font-weight: 300">500</div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px"><strong>Tổng số</strong> bài báo<br>&nbsp;</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='33759' data-delay='1' data-increment='250'>33759</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Số từ <strong>nhiều nhất</strong> trong một bài báo</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='13551' data-delay='1' data-increment='150'>13551</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Số từ <strong>ít nhất</strong> trong một bài báo</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='35' data-delay='1' data-increment='5'>35</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Số từ <strong>trung bình</strong> trong một bài báo</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='390.2' data-delay='1' data-increment='20'>390.2</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Tổng số <strong>chủ đề</strong><br>&nbsp;</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='10' data-delay='1' data-increment='2'>10</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Độ lớn của <strong>từ điển</strong><br>&nbsp;</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='159747' data-delay='1' data-increment='1000'>159747</span></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<! --/container -->
-
-
-<! -- ********** BLUE SECTION - PICTON ********** -->
-<div id="picton">
-    <div class="row nopadding">
-        <div class="col-md-6 pull-left">
-            <img src="assets/img/shot02.png" class="img-responsive alignleft" alt="" data-effect="slide-left">
-        </div>
-        <div class="col-md-5 mt">
-            <h4>Multiple Templates Options</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                essentially unchanged.</p>
-            <p class="mt">
-                <button class="btn btn-white btn-theme">Sign Up Now | 14 Days Free</button>
-            </p>
-        </div>
-
-    </div>
-    <! --row -->
-</div>
-<! --/Picton -->
-
-
-<! -- ********** BLUE SECTION - CURIOUS ********** -->
-<div id="curious">
-    <div class="row nopadding">
-        <div class="col-md-5 col-md-offset-1 mt">
-            <h4>Important Tools Provided</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                essentially unchanged.</p>
-            <p class="mt">
-                <button class="btn btn-white btn-theme">Sign Up Now | 14 Days Free</button>
-            </p>
-        </div>
-
-        <div class="col-md-6 pull-right">
-            <img src="assets/img/shot03.png" class="img-responsive alignright" alt="" data-effect="slide-right">
-        </div>
-    </div>
-    <! --/row -->
-</div>
-<! --/curious -->
-
-<! -- ********** BLUE SECTION - MALIBU ********** -->
-<div id="malibu">
-    <div class="row nopadding">
-        <div class="col-md-6 pull-left">
-            <img src="assets/img/shot04.png" class="img-responsive alignleft" alt="" data-effect="slide-left">
-        </div>
-        <div class="col-md-5 mt">
-            <h4>Try Us For Free</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                essentially unchanged.</p>
-            <p class="mt">
-                <button class="btn btn-white btn-theme">Sign Up Now | 14 Days Free</button>
-            </p>
-        </div>
-
-    </div>
-    <! --row -->
-</div>
-<! --/Malibu -->
-
-
-<! -- ********** BLUE SECTION - JELLY ********** -->
-<div id="jelly">
-    <div class="row nopadding">
-        <div class="col-md-5 col-md-offset-1 mt">
-            <h4>Don't Wait, Try Us Now</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                essentially unchanged.</p>
-            <p class="mt">
-                <button class="btn btn-white btn-theme">Sign Up Now | 14 Days Free</button>
-            </p>
-        </div>
-
-        <div class="col-md-6 mt centered">
-            <h1 data-effect="slide-bottom">24</h1>
-            <h3>$ per month</h3>
-        </div>
-    </div>
-    <! --/row -->
-</div>
-<! --/Jelly -->
-
-<! -- ********** FOOTER ********** -->
-<div id="f">
-    <div class="container">
+<div style="border-top: 5px solid #73879C">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2 centered">
-                <h4 class="mb">Grab Our Offer Now. Try Us For 14 Days Totally Free.</h4>
-                <form role="form" action="register.php" method="post" enctype="plain">
-                    <input type="email" name="email" class="subscribe-input" placeholder="Enter your e-mail address..."
-                           required>
-                    <button class='btn btn-lg btn-info btn-sub subscribe-submit' type="submit">Yes, Please</button>
-                </form>
-
+            <div class="col-md-12">
+                <div class="col-md-6" style="border-bottom: 1px solid #73879C">
+                    <h1><strong>Dữ liệu testing</strong></h1>
+                </div>
             </div>
-
-        </div>
-        <! --/row -->
-    </div>
-    <! --/container -->
-</div>
-<! --/F -->
-
-<! -- ********** CREDITS ********** -->
-<div id="c">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 centered">
-                <p>Copyright 2014 | LandingSumo.com</p>
+            <div class="col-lg-12" style="height: 450px; padding-top: 50px">
+                <div id="topicTestChart"></div>
+            </div>
+            <div class="col-md-12" style="padding-top: 20px; padding-bottom: 20px">
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px"><strong>Tổng số</strong> bài báo<br>&nbsp;</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='50373' data-delay='1' data-increment='250'>50373</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Số từ <strong>nhiều nhất</strong> trong một bài báo</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='9751' data-delay='1' data-increment='150'>9751</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Số từ <strong>ít nhất</strong> trong một bài báo</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='7' data-delay='1' data-increment='5'>7</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Số từ <strong>trung bình</strong> trong một bài báo</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='411.25' data-delay='1' data-increment='20'>411.25</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Tổng số <strong>chủ đề</strong><br>&nbsp;</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='10' data-delay='1' data-increment='2'>10</span></div>
+                </div>
+                <div class="col-md-2" style="text-align: center;">
+                    <h3 style="margin-bottom: 0px">Độ lớn của <strong>từ điển</strong><br>&nbsp;</h3>
+                    <div style="font-size: 90px; font-weight: 500;"><span style="font-family: agencyFont" class="numscroller" data-min='1' data-max='213624' data-delay='1' data-increment='1000'>213624</span></div>
+                </div>
             </div>
         </div>
     </div>
-    <! --/container -->
 </div>
-<! --/C -->
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -336,5 +271,6 @@
 <script src="assets/js/canvasjs.min.js"></script>
 <script src="assets/js/angular.min.js"></script>
 <script src="assets/js/myjs.js"></script>
+<script src="assets/js/numscroller-1.0.js"></script>
 </body>
 </html>
