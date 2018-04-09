@@ -1,4 +1,68 @@
 window.onload = function () {
+    compareChart = new CanvasJS.Chart("compareChart", {
+        animationEnabled: true,
+        title:{
+            text: "So sánh score của 2 mô hình",
+            fontFamily: 'Roboto'
+        },
+        axisY: {
+            title: null
+        },
+        legend: {
+            cursor:"pointer",
+            itemclick : toggleDataSeries
+        },
+        toolTip: {
+            shared: true,
+            content: toolTipFormatter
+        },
+        data: [{
+            type: "bar",
+            showInLegend: true,
+            name: "SVM",
+            color: "gold",
+            dataPoints: [
+                { y: 89.4, label: "F1 Score" },
+                { y: 91.7, label: "Score" }
+            ]
+        },
+            {
+                type: "bar",
+                showInLegend: true,
+                name: "Naive Bayes",
+                color: "silver",
+                dataPoints: [
+                    { y: 87.7, label: "F1 Score" },
+                    { y: 89.8, label: "Score" }
+                ]
+            }]
+    });
+    compareChart.render();
+
+    function toolTipFormatter(e) {
+        var str = "";
+        var total = 0 ;
+        var str3;
+        var str2 ;
+        for (var i = 0; i < e.entries.length; i++){
+            var str1 = "<span style= \"color:"+e.entries[i].dataSeries.color + "\">" + e.entries[i].dataSeries.name + "</span>: <strong>"+  e.entries[i].dataPoint.y + "</strong> <br/>" ;
+            total = e.entries[i].dataPoint.y + total;
+            str = str.concat(str1);
+        }
+        str2 = "<strong>" + e.entries[0].dataPoint.label + "</strong> <br/>";
+        return (str2.concat(str));
+    }
+
+    function toggleDataSeries(e) {
+        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+            e.dataSeries.visible = false;
+        }
+        else {
+            e.dataSeries.visible = true;
+        }
+        compareChart.render();
+    }
+
     topicTrainChart = new CanvasJS.Chart("topicTrainChart", {
         animationEnabled: true,
         title: {
@@ -127,16 +191,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: -1.6061, label: "Cướp"},
-                {y: -1.5988, label: "Toàn quốc"},
-                {y: -1.5988, label: "Quan chức"},
-                {y: -1.5736, label: "Nghiên cứu"},
-                {y: -1.5369, label: "Tấn công"},
-                {y: 1.8365, label: "Di tích"},
-                {y: 1.8416, label: "Công chính"},
-                {y: 1.9812, label: "Công chức"},
-                {y: 2.1420, label: "Qui hoạch"},
-                {y: 2.1910, label: "Dân"}
+                {y: 28613, label: "Công chính"},
+                {y: 28619, label: "Công chức"},
+                {y: 29529, label: "Cướp"},
+                {y: 33173, label: "Di tích"},
+                {y: 35446, label: "Dân"},
+                {y: 84951, label: "Nghiên cứu"},
+                {y: 105807, label: "Quan chức"},
+                {y: 106185, label: "Qui hoạch"},
+                {y: 129229, label: "Toàn quốc"},
+                {y: 138098, label: "Tấn công"}
             ]
         }]
     });
@@ -162,16 +226,16 @@ window.onload = function () {
             axisYType: "secondary",
             color: "#014D65",
             dataPoints: [
-                {y: -1.3178, label: "Âm nhạc"},
-                {y: -1.2616, label: "Phẫu thuật"},
-                {y: -1.2148, label: "Cơ thể"},
-                {y: -1.1951, label: "Sáng tác"},
-                {y: -1.1965, label: "Du khách"},
-                {y: 1.6969, label: "Nguyên liệu"},
-                {y: 1.8845, label: "Ẩm thực"},
-                {y: 2.3266, label: "Ngon"},
-                {y: 2.1529, label: "Món"},
-                {y: 2.1175, label: "Tâm sự"}
+                {y: 29411, label: "Cơ thể"},
+                {y: 34870, label: "Du khách"},
+                {y: 81353, label: "Món"},
+                {y: 85307, label: "Ngon"},
+                {y: 85697, label: "Nguyên liệu"},
+                {y: 103312, label: "Phẫu thuật"},
+                {y: 118485, label: "Sáng tác"},
+                {y: 120648, label: "Tâm sự"},
+                {y: 152139, label: "Âm nhạc"},
+                {y: 159445, label: "Ẩm thực"},
             ]
         }]
     });
@@ -544,6 +608,8 @@ $('#myTab').on('shown.bs.tab', function () {
     $('#naiveTab').off();
     svmChart.render();
     $('#svmTab').off();
+    compareChart.render();
+    $('compare').off();
 })
 
 /*chart shows right layout when switching tabs*/
