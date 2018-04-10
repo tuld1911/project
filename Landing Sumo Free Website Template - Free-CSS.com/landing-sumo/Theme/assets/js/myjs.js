@@ -538,68 +538,76 @@ function loadFileAsText(){
 var app = angular.module('myApp', []);
 app.controller('formCtrl', function ($scope, $http) {
     $scope.submitText = function () {
-        $http({
-            method: 'GET',
-            url: 'http://127.0.0.1:5000/predict?value=' + document.getElementById("inputTextToSave").value
-        }).then(function successCallback(response) {
-            document.getElementById('txtSVMType').classList.remove("animated");
-            document.getElementById('txtSVMType').classList.remove("zoomIn");
-            void document.getElementById('txtSVMType').offsetWidth;
-            document.getElementById('txtSVMType').classList.add("animated");
-            document.getElementById('txtSVMType').classList.add("zoomIn");
-            document.getElementById('txtSVMType').innerHTML = response.data.result;
-            document.getElementById('txtSVMType').style.color = "black";
-            var proba = response.data.proba;
-            for (i = 0; i < 10; i++) {
-                svmChart.options.data[0].dataPoints[i].y = proba[i] * 100;
-            }
-            svmChart.render();
-        }, function errorCallback(response) {
-            alert('server is not response !')
-        });
+        if (document.getElementById("inputTextToSave").value.trim() == '') {
+            document.getElementById("area").classList.add("has-error");
+            document.getElementById("inputTextToSave").placeholder = "Xin hãy nhập văn bản muốn phân loại !"
+        } else {
+            document.getElementById("area").classList.remove("has-error");
+            document.getElementById("inputTextToSave").placeholder = ""
+            $http({
+                method: 'GET',
+                url: 'http://127.0.0.1:5000/predict?value=' + document.getElementById("inputTextToSave").value
+            }).then(function successCallback(response) {
+                document.getElementById('txtSVMType').classList.remove("animated");
+                document.getElementById('txtSVMType').classList.remove("zoomIn");
+                void document.getElementById('txtSVMType').offsetWidth;
+                document.getElementById('txtSVMType').classList.add("animated");
+                document.getElementById('txtSVMType').classList.add("zoomIn");
+                document.getElementById('txtSVMType').innerHTML = response.data.result;
+                document.getElementById('txtSVMType').style.color = "black";
+                var proba = response.data.proba;
+                for (i = 0; i < 10; i++) {
+                    svmChart.options.data[0].dataPoints[i].y = proba[i] * 100;
+                }
+                svmChart.render();
+            }, function errorCallback(response) {
+                alert('server is not response !')
+            });
 
-        $http({
-            method: 'GET',
-            url: 'http://127.0.0.1:5000/predict_naive?value=' + document.getElementById("inputTextToSave").value
-        }).then(function successCallback(response) {
-            document.getElementById('txtNaiveType').classList.remove("animated");
-            document.getElementById('txtNaiveType').classList.remove("zoomIn");
-            void document.getElementById('txtNaiveType').offsetWidth;
-            document.getElementById('txtNaiveType').classList.add("animated");
-            document.getElementById('txtNaiveType').classList.add("zoomIn");
-            document.getElementById('txtNaiveType').innerHTML = response.data.result;
-            document.getElementById('txtNaiveType').style.color = "black";
-            var proba = response.data.proba;
-            for (i = 0; i < 10; i++) {
-                naiveChart.options.data[0].dataPoints[i].y = proba[i] * 100;
-            }
-            naiveChart.render();
-        }, function errorCallback(response) {
-            alert('server is not response !');
-        });
+            $http({
+                method: 'GET',
+                url: 'http://127.0.0.1:5000/predict_naive?value=' + document.getElementById("inputTextToSave").value
+            }).then(function successCallback(response) {
+                document.getElementById('txtNaiveType').classList.remove("animated");
+                document.getElementById('txtNaiveType').classList.remove("zoomIn");
+                void document.getElementById('txtNaiveType').offsetWidth;
+                document.getElementById('txtNaiveType').classList.add("animated");
+                document.getElementById('txtNaiveType').classList.add("zoomIn");
+                document.getElementById('txtNaiveType').innerHTML = response.data.result;
+                document.getElementById('txtNaiveType').style.color = "black";
+                var proba = response.data.proba;
+                for (i = 0; i < 10; i++) {
+                    naiveChart.options.data[0].dataPoints[i].y = proba[i] * 100;
+                }
+                naiveChart.render();
+            }, function errorCallback(response) {
+                alert('server is not response !');
+            });
 
-        $http({
-            method: 'POST',
-            url: 'https://cors-anywhere.herokuapp.com/' + 'http://magizbox.com:9386/classification',
-            header: {
-                "Content-Type": "application/json"
-            },
-            data: {
-                'text': document.getElementById("inputTextToSave").value,
-                'domain': "general"
-            }
-        }).then(function successCallback(response) {
-            document.getElementById('txtUnder').classList.remove("animated");
-            document.getElementById('txtUnder').classList.remove("zoomIn");
-            void document.getElementById('txtUnder').offsetWidth;
-            document.getElementById('txtUnder').classList.add("animated");
-            document.getElementById('txtUnder').classList.add("zoomIn");
-            document.getElementById('txtUnder').innerHTML = response.data.output;
-            document.getElementById('txtUnder').style.color = "black";
-        }, function errorCallback(response) {
-            alert('server is not response !');
-        });
-    };
+            $http({
+                method: 'POST',
+                url: 'https://cors-anywhere.herokuapp.com/' + 'http://magizbox.com:9386/classification',
+                header: {
+                    "Content-Type": "application/json"
+                },
+                data: {
+                    'text': document.getElementById("inputTextToSave").value,
+                    'domain': "general"
+                }
+            }).then(function successCallback(response) {
+                document.getElementById('txtUnder').classList.remove("animated");
+                document.getElementById('txtUnder').classList.remove("zoomIn");
+                void document.getElementById('txtUnder').offsetWidth;
+                document.getElementById('txtUnder').classList.add("animated");
+                document.getElementById('txtUnder').classList.add("zoomIn");
+                document.getElementById('txtUnder').innerHTML = response.data.output;
+                document.getElementById('txtUnder').style.color = "black";
+            }, function errorCallback(response) {
+                alert('server is not response !');
+            });
+        }
+        ;
+    }
 });
 
 /*pie shows center when switching tabs*/
